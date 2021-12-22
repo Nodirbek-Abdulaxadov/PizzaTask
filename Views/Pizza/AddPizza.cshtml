@@ -1,0 +1,38 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using PizzaTask.Models
+@using System.Collections;
+
+@model Pizza
+
+<style>
+    label {
+        display: block;
+        margin: 5px;
+    }
+    form {
+        margin-left: 50px;
+    }
+</style>
+
+<form asp-controller="pizza" asp-action="addpizza" method="post">
+    <label asp-for="Title">Title</label>
+    <input asp-for="Title" type="text" />
+    <br />
+
+    <label asp-for="ShortName">ShortName</label>
+    <input asp-for="ShortName" type="text" />
+    <br />
+
+    <label asp-for="StockStatus">Select StockStatus</label>
+    <select asp-for="StockStatus" asp-items="Html.GetEnumSelectList<EPizzaStockStatus>()"></select>
+    <br />
+
+    <label asp-for="Ingredients">Ingredients</label>
+    <textarea asp-for="Ingredients"></textarea>
+    <br />
+
+    <label asp-for="Price">Price</label>
+    <input asp-for="Price" type="text" />
+
+    <button type="submit">Save</button>
+</form>

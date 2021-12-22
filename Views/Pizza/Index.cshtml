@@ -1,0 +1,40 @@
+﻿@using PizzaTask.Models
+
+@model IEnumerable<Pizza>
+
+    <style>
+        table td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        table {
+            border: 3px solid black;
+            width: 90%;
+            margin: auto;
+        }
+    </style>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>ShortName</th>
+        <th>StockStatus</th>
+        <th>Ingredients</th>
+        <th>Price</th>
+    </tr>
+
+    @foreach(Pizza p in Model)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Title</td>
+            <td>@p.ShortName</td>
+            <td>@p.StockStatus</td>
+            <td>@p.Ingredients</td>
+            <td>@p.Price</td>
+        </tr>
+    }
+
+</table>
